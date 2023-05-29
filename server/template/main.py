@@ -18,8 +18,7 @@ async def read_root():
 
 @app.get("/items", status_code=HTTPStatus.OK, response_model=list[OopObject])
 async def search() -> list[OopObject]:
-    return db
-
+    return ResponseBuilder.buildOKCodeResponse(db)
 
 @app.get("/items/{item_id}")
 async def read_item(item_id: int):
