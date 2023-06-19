@@ -1,0 +1,150 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale-1" />
+
+    <title>Ultimate</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous" />
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-196668028-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-196668028-1');
+    </script>
+
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="script.js"></script>
+  </head>
+
+  <body onload="onIndexLoad()" style="background-color: #122332">
+    <div class="body">
+      <div style="flex: 1; flex-direction: row; display: flex">
+        <a id="link-banner-side" onclick="onBannerSide()" target="top" class="banner-left">
+          <img
+            src="http://a.impactradius-go.com/display-ad/11346-1446118"
+            width="160px"
+            height="100%"
+            style="margin-top: 112px; border-radius: 16px; margin-right: 16px; cursor: pointer" />
+        </a>
+        <div>
+          <div class="header">
+            <div style="display: flex; align-items: center; justify-content: center">
+              <img class="logo" src="img/logo.png" />
+              <p class="title">Ultimate</p>
+            </div>
+            <div style="display: flex; align-items: center">
+              <a id="link-facebook" onclick="onLinkFacebook()" target="top">
+                <img
+                  class="facebook"
+                  src="img/facebook.png"
+                  style="cursor: pointer; width: 24px; height: 24px" />
+              </a>
+              <a id="link-design" onclick="onLinkDesign()" target="top">
+                <img src="img/link.png" class="link-design" />
+              </a>
+              <a id="link-buy" onclick="onLinkBuyLoad()" target="top">
+                <div
+                  id="buy"
+                  style="
+                    cursor: pointer;
+                    background-color: #106af3;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 16px;
+                    height: 44px;
+                    padding-right: 16px;
+                  ">
+                  <p style="font-size: 14px; font-weight: bold; color: white">Buy Now</p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="content" style="flex: 1">
+            <div class="box">
+              <div class="image">
+                <img src="img/image.png" style="width: 100%; height: 100%; object-fit: contain" />
+              </div>
+              <div class="scan-view">
+                <div class="ios-view">
+                  <div style="border-radius: 12px; overflow: hidden">
+                    <img src="img/ios.png" style="width: 100%; height: auto" />
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      margin-top: 16px;
+                    ">
+                    <img src="img/ios_logo.png" style="width: 32px; height: 32px" />
+                    <p style="color: white; font-size: 20px; font-weight: bold">iOS Scan</p>
+                  </div>
+                </div>
+                <div class="android-view">
+                  <div style="border-radius: 12px; overflow: hidden">
+                    <img src="img/android.png" style="width: 100%; height: auto" />
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      margin-top: 16px;
+                    ">
+                    <img src="img/android_logo.png" style="width: 32px; height: 32px" />
+                    <p style="color: white; font-size: 20px; font-weight: bold">Android Scan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="banner">
+            <a target="top" id="link-banner-footer" onclick="onBannerFooter()">
+              <img
+                style="
+                  height: 100%;
+                  width: 100%;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  cursor: pointer;
+                "
+                src="http://a.impactradius-go.com/display-ad/15383-1414645"
+                alt="" />
+            </a>
+          </div>
+        </div>
+        <a
+          id="link-banner-side-right"
+          onclick="onBannerSideRight()"
+          target="top"
+          class="banner-right">
+          <img
+            src="https://a.impactradius-go.com/display-ad/5618-1187122"
+            width="160px"
+            height="100%"
+            style="margin-top: 112px; border-radius: 16px; margin-left: 16px; cursor: pointer" />
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
