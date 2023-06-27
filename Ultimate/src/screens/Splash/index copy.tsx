@@ -10,7 +10,6 @@ import IntroList from 'elements/App/IntroList';
 import ThemeLogo from 'elements/App/ThemeLogo';
 // ----------------------------- Components -----------------------------------
 import { Container } from 'components';
-import Onboarding01 from 'screens/Onboarding/Onboarding01';
 
 const SplashScreen = memo(() => {
   const { navigate } = useNavigation<NavigationProp<RootStackParamList>>();
@@ -25,9 +24,8 @@ const SplashScreen = memo(() => {
   ];
   return (
     <Container style={styles.container}>
-      {/* <TopNavigation style={styles.topNavigation} accessoryLeft={<ThemeLogo />} />
-      <IntroList contentContainerStyle={styles.content} data={data} title={''} /> */}
-      <Onboarding01 />
+      <TopNavigation style={styles.topNavigation} accessoryLeft={<ThemeLogo />} />
+      <IntroList contentContainerStyle={styles.content} data={data} title={''} />
     </Container>
   );
 });

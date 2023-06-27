@@ -17,15 +17,14 @@ import {useSharedValue} from 'react-native-reanimated';
 import TextContent from './TextContent';
 import ThemeLogo from 'elements/App/ThemeLogo';
 import Pagination from 'elements/Onboarding/Pagination';
-// import { navigate } from 'navigation/root-navigation';
 
 
-const Onboarding01 = memo(() => {
+const Init01 = memo(() => {
   const {navigate, goBack} = useNavigation();
   const {height, width} = useLayout();
   const styles = useStyleSheet(themedStyles);
 
-  // const onHome = useCallback(() => navigate('Init02'), []);
+  const onNext = useCallback(() => navigate('Init02'), []);
 
   const data = [
     {
@@ -113,14 +112,14 @@ const Onboarding01 = memo(() => {
       <Button
         style={styles.button}
         children={'Countinue'}
-        onPress={goBack}
+        onPress={onNext}
         accessoryRight={<Icon pack="assets" name="arrow-right" />}
       />
     </Container>
   );
 });
 
-export default Onboarding01;
+export default Init01;
 
 const themedStyles = StyleService.create({
   container: {

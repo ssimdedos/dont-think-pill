@@ -5,37 +5,26 @@ export type RootStackParamList = {
   Onboarding: RouteProp<OnboardingStackParamList> | undefined;
   Auth: RouteProp<AuthStackParamList> | undefined;
   Social: RouteProp<SocialStackParamList> | undefined;
+  Profile: RouteProp<ProfileStackParamList> | undefined;
+  Food: RouteProp<FoodStackParamList> | undefined;
   ECommerce: { screen: keyof ECommerceStackParamList };
   Reading: { screen: keyof ReadingStackParamList };
   FitnessHealth: RouteProp<FitnessHealthStackParamList> | undefined;
-  Init: RouteProp<InitStackParamList> | undefined;
-  Main: RouteProp<MainStackParamList> | undefined;
-  Food: RouteProp<FoodStackParamList> | undefined;
 };
 
 export type OnboardingStackParamList = {
+  OnboardingIntro: undefined;
   Onboarding01: undefined;
-};
-
-export type MainStackParamList = {
-  Main01: undefined;
-  Main02: undefined;
-  Main03: undefined;
-  Main04: undefined;
-};
-
-export type InitStackParamList = {
-  Init01: undefined;
-  Init02: undefined;
-  Init03: undefined;
-  Init04: undefined;
-};
-
-export type FoodStackParamList = {
-  Food01: undefined;
-  Food02: undefined;
-  Food03: undefined;
-  Food04: undefined;
+  Onboarding02: undefined;
+  Onboarding03: undefined;
+  Onboarding04: undefined;
+  Onboarding05: undefined;
+  Onboarding06: undefined;
+  Onboarding07: undefined;
+  Onboarding08: undefined;
+  Onboarding09: undefined;
+  Onboarding10: undefined;
+  Onboarding11: undefined;
 };
 
 export type AuthStackParamList = {
@@ -70,6 +59,21 @@ export type SocialStackParamList = {
   Social14: undefined;
 };
 
+export type ProfileStackParamList = {
+  ProfileIntro: undefined;
+  Profile01: undefined;
+  Profile02: undefined;
+  Profile03: undefined;
+  Profile04: undefined;
+  Profile05: undefined;
+  Profile06: undefined;
+  Profile07: undefined;
+  Profile08: undefined;
+  Profile09: undefined;
+  Profile10: undefined;
+  Profile11: undefined;
+  Profile12: undefined;
+};
 
 export type ECommerceStackParamList = {
   ECommerceIntro: undefined;
@@ -85,6 +89,19 @@ export type ECommerceStackParamList = {
   ECommerce10: undefined;
 };
 
+export type FoodStackParamList = {
+  FoodIntro: undefined;
+  Food01: undefined;
+  Food02: undefined;
+  Food03: undefined;
+  Food04: undefined;
+  Food05: undefined;
+  Food06: undefined;
+  Food07: undefined;
+  Food08: undefined;
+  Food09: undefined;
+  Food10: undefined;
+};
 
 export type ReadingStackParamList = {
   ReadingIntro: undefined;
