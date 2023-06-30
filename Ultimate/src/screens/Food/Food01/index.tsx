@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Container, Content, CurrencyText, LinearGradientText, NavigationAction, Text } from 'components';
 import { useTheme, Avatar, Icon, Layout, TopNavigation } from '@ui-kitten/components';
@@ -10,7 +10,12 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const Food01 = React.memo(() => {
   const theme = useTheme();
-  const { goBack } = useNavigation();
+  const { navigate, goBack } = useNavigation();
+
+  const onHome = useCallback(() => navigate('Main'), []);
+  const onFoodPick = useCallback(() => navigate('Food02'), []);
+  const onFoodRecord = useCallback(() => navigate('Food03'), []);
+  const onFoodAdd = useCallback(() => navigate('Food04'), []);
 
   const data = [
     {
@@ -35,17 +40,20 @@ const Food01 = React.memo(() => {
     {
       icon: 'house-simple',
       color: theme['color-primary-500'],
-      name: 'My Product',
+      name: '메인',
+      func: onHome,
     },
     {
       icon: 'money',
       color: theme['color-success-500'],
-      name: 'Finance',
+      name: '식단 기록',
+      func: onFoodRecord,
     },
     {
       icon: 'chart-bar-1',
       color: theme['color-secondary-500'],
-      name: 'Analytics',
+      name: '음식 등록',
+      func: onFoodAdd,
     },
   ];
 
@@ -146,7 +154,7 @@ const Food01 = React.memo(() => {
             return (
               <TouchableOpacity
                 activeOpacity={0.7}
-                onPress={goBack}
+                onPress={item.func}
                 key={index}
                 style={styles.feature}>
                 <View style={[styles.iconView, { backgroundColor: item.color }]}>

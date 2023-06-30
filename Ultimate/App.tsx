@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar, StyleSheet } from "react-native";
 import { ApplicationProvider, IconRegistry } from "@ui-kitten/components";
@@ -11,11 +11,15 @@ import AppContainer from "navigation/AppContainer";
 import AssetsIconsPack from "assets/AssetsIconsPack";
 import { Provider } from "react-redux";
 import store from "reduxs/store";
+import { configureStore } from "@reduxjs/toolkit";
 import useCachedResources from "hooks/useCacheResource";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
 
+  useEffect(() => {
+    console.log(store.getState());
+  },[])
   if (!isLoadingComplete) {
     return null;
   }

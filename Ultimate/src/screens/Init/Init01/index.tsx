@@ -111,7 +111,7 @@ const Init01 = memo(() => {
       </Content>
       <Button
         style={styles.button}
-        children={'Countinue'}
+        children={'회원 가입'}
         onPress={onNext}
         accessoryRight={<Icon pack="assets" name="arrow-right" />}
       />
