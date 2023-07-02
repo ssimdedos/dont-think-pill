@@ -1,66 +1,60 @@
-import React, {memo, useCallback} from 'react';
-import {Image, Platform} from 'react-native';
+import React, { memo, useCallback } from 'react';
+import { Image, Platform, View } from 'react-native';
 // ----------------------------- UI kitten -----------------------------------
 import { TopNavigation, StyleService, useStyleSheet, Button, Icon } from '@ui-kitten/components';
 // ----------------------------- Assets -----------------------------------
-import {Images} from 'assets/images';
+import { Images } from 'assets/images';
 // ----------------------------- Hook -----------------------------------
-import {useLayout} from 'hooks';
+import { useLayout } from 'hooks';
 // ----------------------------- Navigation -----------------------------------
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 // ----------------------------- Components -----------------------------------
-import {Container, Content, VStack} from 'components';
+import { Container, Content, VStack } from 'components';
 // ----------------------------- Reanimated 2 -----------------------------------
 import Carousel from 'react-native-reanimated-carousel';
-import {useSharedValue} from 'react-native-reanimated';
+import { useSharedValue } from 'react-native-reanimated';
 // ----------------------------- Elements -----------------------------------
 import TextContent from './TextContent';
 import ThemeLogo from 'elements/App/ThemeLogo';
 import Pagination from 'elements/Onboarding/Pagination';
 
-
 const Init01 = memo(() => {
-  const {navigate, goBack} = useNavigation();
-  const {height, width} = useLayout();
+  const { navigate, goBack } = useNavigation();
+  const { height, width } = useLayout();
   const styles = useStyleSheet(themedStyles);
 
   const onNext = useCallback(() => navigate('Init02'), []);
+  const onSignIn = useCallback(() => navigate('SignIn'), []);
 
   const data = [
     {
       title: 'Private Wealth Management',
-      describe:
-        'Why would I want to trade an Event Contract over another asset class?',
+      describe: 'Why would I want to trade an Event Contract over another asset class?',
       image: Images.onboarding.onboarding01,
     },
     {
       title: 'Private Wealth Management',
-      describe:
-        'Why would I want to trade an Event Contract over another asset class?',
+      describe: 'Why would I want to trade an Event Contract over another asset class?',
       image: Images.onboarding.onboarding02,
     },
     {
       title: 'Private Wealth Management',
-      describe:
-        'Why would I want to trade an Event Contract over another asset class?',
+      describe: 'Why would I want to trade an Event Contract over another asset class?',
       image: Images.onboarding.onboarding01,
     },
     {
       title: 'Private Wealth Management',
-      describe:
-        'Why would I want to trade an Event Contract over another asset class?',
+      describe: 'Why would I want to trade an Event Contract over another asset class?',
       image: Images.onboarding.onboarding02,
     },
     {
       title: 'Private Wealth Management',
-      describe:
-        'Why would I want to trade an Event Contract over another asset class?',
+      describe: 'Why would I want to trade an Event Contract over another asset class?',
       image: Images.onboarding.onboarding02,
     },
     {
       title: 'Private Wealth Management',
-      describe:
-        'Why would I want to trade an Event Contract over another asset class?',
+      describe: 'Why would I want to trade an Event Contract over another asset class?',
       image: Images.onboarding.onboarding01,
     },
   ];
@@ -71,25 +65,23 @@ const Init01 = memo(() => {
       <TopNavigation
         style={styles.topNavigation}
         accessoryLeft={<ThemeLogo />}
-        accessoryRight={
-          <Pagination animValue={progress} data={data} space={12} />
-        }
+        accessoryRight={<Pagination animValue={progress} data={data} space={12} />}
       />
       <Content contentContainerStyle={styles.content}>
         <Carousel
-          height={Platform.OS==='android'?560:560*(height/812)}
+          height={Platform.OS === 'android' ? 560 : 560 * (height / 812)}
           width={width * 0.75}
           data={data}
           onProgressChange={(_, absoluteProgress) => {
             progress.value = absoluteProgress;
           }}
           pagingEnabled
-          style={{width: '100%'}}
+          style={{ width: '100%' }}
           autoPlay={true}
           autoPlayInterval={1400}
-          renderItem={({item, index}) => {
+          renderItem={({ item, index }) => {
             return (
-              <VStack style={{flex: 1, marginLeft: 24}}>
+              <VStack style={{ flex: 1, marginLeft: 24 }}>
                 <Image
                   style={{
                     width: 244 * (width / 375),
@@ -109,12 +101,20 @@ const Init01 = memo(() => {
           }}
         />
       </Content>
-      <Button
-        style={styles.button}
-        children={'회원 가입'}
-        onPress={onNext}
-        accessoryRight={<Icon pack="assets" name="arrow-right" />}
-      />
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Button
+          style={styles.button}
+          children={'회원 가입'}
+          onPress={onNext}
+          accessoryRight={<Icon pack="assets" name="arrow-right" />}
+        />
+        <Button
+          style={styles.button}
+          children={'로그인'}
+          onPress={onSignIn}
+          accessoryRight={<Icon pack="assets" name="arrow-right" />}
+        />
+      </View>
     </Container>
   );
 });
@@ -132,7 +132,7 @@ const themedStyles = StyleService.create({
     marginTop: 12,
   },
   button: {
-    marginHorizontal: 16,
+    marginHorizontal: 120,
     marginBottom: 12,
   },
 });

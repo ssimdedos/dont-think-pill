@@ -29,6 +29,7 @@ export type InitStackParamList = {
   Init02: undefined;
   Init03: undefined;
   Init04: undefined;
+  SignIn: undefined;
 };
 
 export type FoodStackParamList = {
@@ -70,7 +71,6 @@ export type SocialStackParamList = {
   Social14: undefined;
 };
 
-
 export type ECommerceStackParamList = {
   ECommerceIntro: undefined;
   ECommerce01: undefined;
@@ -84,7 +84,6 @@ export type ECommerceStackParamList = {
   ECommerce09: undefined;
   ECommerce10: undefined;
 };
-
 
 export type ReadingStackParamList = {
   ReadingIntro: undefined;
