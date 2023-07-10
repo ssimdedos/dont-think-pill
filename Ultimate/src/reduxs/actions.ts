@@ -1,19 +1,19 @@
-import type { Action } from "redux";
-import { User } from "./AppState";
+import type { Action } from 'redux';
+import { User } from './AppState';
 
-type LoginAction = Action<'login'> & {
-  loggedUser: User
+type LoginAction = Action<'LOG_IN'> & {
+  loggedUser: User;
 };
 
-type LogoutAction = Action<'logout'>;
+type LogoutAction = Action<'LOG_OUT'>;
 
 export type LoginActions = LogoutAction | LoginAction;
 
-export const loginAction = (loggedUser: User): LoginAction => ({
-  type: 'login',
-  loggedUser
+export const LoginAction = (loggedUser: User): LoginAction => ({
+  type: 'LOG_IN',
+  loggedUser,
 });
 
 export const LogoutAction = (): LogoutAction => ({
-  type: 'logout'
+  type: 'LOG_OUT',
 });

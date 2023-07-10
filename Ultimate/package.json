@@ -26,6 +26,7 @@
     "@shopify/flash-list": "1.4.0",
     "@ui-kitten/components": "^5.1.2",
     "@ui-kitten/eva-icons": "^5.1.2",
+    "axios": "^1.4.0",
     "dayjs": "^1.11.7",
     "expo": "~48.0.5",
     "expo-blur": "~12.2.2",

@@ -1,5 +1,5 @@
-import React, { memo } from "react";
-import { TouchableOpacity } from "react-native";
+import React, { memo, useCallback } from 'react';
+import { TouchableOpacity } from 'react-native';
 // ----------------------------- UI kitten -----------------------------------
 import {
   Icon,
@@ -7,26 +7,23 @@ import {
   StyleService,
   TopNavigation,
   useStyleSheet,
-} from "@ui-kitten/components";
+  Button,
+} from '@ui-kitten/components';
 
 // ----------------------------- Components -----------------------------------
-import {
-  NavigationAction,
-  Container,
-  Content,
-  Text,
-  HStack,
-  VStack,
-} from "components";
-import { LinearGradient } from "expo-linear-gradient";
-import { NameIcon } from "types/iconpack-name";
-import { Images } from "assets/images";
-import { PieChart } from "react-native-svg-charts";
-import { Labels } from "./Label";
-import BottomBar from "./BottomBar";
-import { useLayout } from "hooks";
-import { useNavigation, useTheme } from "@react-navigation/native";
-import BottomBar01 from "elements/Health/BottomBar01";
+import { NavigationAction, Container, Content, Text, HStack, VStack } from 'components';
+import { LinearGradient } from 'expo-linear-gradient';
+import { NameIcon } from 'types/iconpack-name';
+import { Images } from 'assets/images';
+import { PieChart } from 'react-native-svg-charts';
+import { Labels } from './Label';
+import BottomBar from './BottomBar';
+import { useLayout } from 'hooks';
+import { useNavigation, useTheme } from '@react-navigation/native';
+import BottomBar01 from 'elements/Health/BottomBar01';
+import { useDispatch } from 'react-redux';
+import { LogoutAction } from 'reduxs/actions';
+import { useAppSelector } from 'reduxs/store';
 
 const Main04 = memo(() => {
   const { navigate } = useNavigation();
@@ -36,9 +33,15 @@ const Main04 = memo(() => {
   const onWeekly = React.useCallback(() => navigate('Main03'), []);
   const onDiagnose = React.useCallback(() => navigate('Main04'), []);
 
+  const dispatch = useDispatch();
+  const onLogout = useCallback(() => {
+    dispatch(LogoutAction());
+    navigate('Init');
+  }, []);
+  const userData = useAppSelector((state) => state.userReducer.loggedUser);
   const styles = useStyleSheet(themedStyles);
   const { width } = useLayout();
-  const Color_Gradient = ["#CFE1FD", "#FFFDE1"];
+  const Color_Gradient = ['#CFE1FD', '#FFFDE1'];
   const ButtonNotification = ({
     icon,
     notification,
@@ -49,11 +52,7 @@ const Main04 = memo(() => {
     onPress?(): void;
   }) => {
     return (
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={onPress}
-        style={styles.buttonNotification}
-      >
+      <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={styles.buttonNotification}>
         {notification > 0 && (
           <VStack style={styles.notification}>
             <Text style={styles.textNotification} status="warning" center>
@@ -67,21 +66,19 @@ const Main04 = memo(() => {
   };
 
   const DATA = [
-    { title: "Other", value: 25, svg: { fill: "#CFE1FD" } },
-    { title: "💖  Crush", value: 25, svg: { fill: "#B1CEDE" } },
-    { title: "🎉  Party", value: 21, svg: { fill: "#F6D938" } },
-    { title: "🔥  Hot", value: 18, svg: { fill: "#106AF3" } },
-    { title: "🔥  ", value: 8, svg: { fill: "#9AD960" } },
+    { title: 'Other', value: 25, svg: { fill: '#CFE1FD' } },
+    { title: '💖  Crush', value: 25, svg: { fill: '#B1CEDE' } },
+    { title: '🎉  Party', value: 21, svg: { fill: '#F6D938' } },
+    { title: '🔥  Hot', value: 18, svg: { fill: '#106AF3' } },
+    { title: '🔥  ', value: 8, svg: { fill: '#9AD960' } },
   ];
-  const pieData = DATA.filter((value) => value.value > 0).map(
-    (value, index) => ({
-      title: value.title,
-      value: value.value,
-      svg: { fill: value.svg.fill },
-      key: `pie-${index}`,
-      arc: { outerRadius: "100%", cornerRadius: 6 },
-    })
-  );
+  const pieData = DATA.filter((value) => value.value > 0).map((value, index) => ({
+    title: value.title,
+    value: value.value,
+    svg: { fill: value.svg.fill },
+    key: `pie-${index}`,
+    arc: { outerRadius: '100%', cornerRadius: 6 },
+  }));
 
   return (
     <Container style={styles.container}>
@@ -117,9 +114,9 @@ const Main04 = memo(() => {
         <HStack justify="flex-start" gap={16} ml={16} mb={40}>
           <Avatar source={Images.avatar.avatar_01} size="small" />
           <VStack gap={8}>
-            <Text category="h4">{"Hi, Albert Flores!"}</Text>
+            <Text category="h4">{'Hi, ' + userData.name}</Text>
             <Text category="subhead" status="placeholder">
-              {"Hi, Albert Flores!"}
+              {'Hi, Albert Flores!'}
             </Text>
           </VStack>
         </HStack>
@@ -130,13 +127,12 @@ const Main04 = memo(() => {
           outerRadius={100}
           labelRadius={160}
           // @ts-ignore
-          sort={(a, b) => b.key - a.key}
-        >
+          sort={(a, b) => b.key - a.key}>
           <Labels />
         </PieChart>
         <VStack style={styles.tab}>
           {pieData.reverse().map((item, i) => {
-            if (item.title === "Other") {
+            if (item.title === 'Other') {
             } else {
               return (
                 <VStack level="1" key={i} pv={8} ph={16} border={99}>
@@ -154,9 +150,15 @@ const Main04 = memo(() => {
           </LinearGradient>
         </VStack>
       </Content>
-      <VStack style={styles.tabBar}>
-      </VStack>
-      <BottomBar01 onHome={onHome} onDaily={onDaily} onWeekly={onWeekly} onDiagnose={onDiagnose} iconActiveColor={theme["text-basic-color"]} />
+      <VStack style={styles.tabBar}></VStack>
+      <Button children={'로그아웃'} onPress={onLogout} />
+      <BottomBar01
+        onHome={onHome}
+        onDaily={onDaily}
+        onWeekly={onWeekly}
+        onDiagnose={onDiagnose}
+        iconActiveColor={theme['text-basic-color']}
+      />
     </Container>
   );
 });
@@ -166,21 +168,21 @@ export default Main04;
 const themedStyles = StyleService.create({
   container: {
     flex: 1,
-    backgroundColor: "#0D0D14",
+    backgroundColor: '#0D0D14',
     paddingBottom: 0,
   },
   content: {
     paddingTop: 24,
   },
   rightNav: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 99,
     gap: 12,
   },
   iconNav: {
-    tintColor: "text-black-color",
+    tintColor: 'text-black-color',
     width: 24,
     height: 24,
   },
@@ -188,33 +190,33 @@ const themedStyles = StyleService.create({
   textNotification: {
     fontSize: 10,
     lineHeight: 12,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   notification: {
-    position: "absolute",
+    position: 'absolute',
     top: -8,
     right: -8,
-    backgroundColor: "color-primary-default",
+    backgroundColor: 'color-primary-default',
     width: 16,
     height: 16,
     borderRadius: 99,
     zIndex: 100,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   avatar: {
     width: 24,
     height: 24,
     borderWidth: 1,
-    borderColor: "background-basic-color-1",
+    borderColor: 'background-basic-color-1',
     borderRadius: 99,
     marginLeft: -4,
   },
   tab: {
-    flexWrap: "wrap",
-    flexDirection: "row",
-    justifyContent: "flex-start",
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
     borderRadius: 16,
-    backgroundColor: "color-primary-default",
+    backgroundColor: 'color-primary-default',
     flex: 1,
     paddingVertical: 28,
     paddingHorizontal: 24,
@@ -226,13 +228,9 @@ const themedStyles = StyleService.create({
     borderRadius: 99,
   },
   tabBar: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 24,
   },
 });
 
-const DATA_Avatar = [
-  Images.avatar.avatar_01,
-  Images.avatar.avatar_02,
-  Images.avatar.avatar_03,
-];
+const DATA_Avatar = [Images.avatar.avatar_01, Images.avatar.avatar_02, Images.avatar.avatar_03];

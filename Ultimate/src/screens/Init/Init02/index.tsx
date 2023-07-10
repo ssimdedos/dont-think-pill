@@ -28,6 +28,7 @@ import {
   VStack,
   HStack,
 } from 'components';
+import axios from 'axios';
 
 const init02 = memo(() => {
   const { navigate, goBack } = useNavigation();
@@ -57,10 +58,17 @@ const init02 = memo(() => {
       title: 'Other',
     },
   ];
+  const URL = 'http://api.dontthinkpill.com/';
 
-  const OnNext = useCallback(() => {
-    console.log({ ages, gender, userHeight, weight });
-    // navigate('Init03');
+  const OnNext = useCallback(async () => {
+    try {
+      // console.log({ ages, gender, userHeight, weight });
+      // const res = await axios.get(URL + 'auth/all');
+      // console.log(res.data);
+    } catch (e) {
+      console.log(e);
+    }
+    navigate('SignIn');
   }, [ages, gender, userHeight, weight]);
 
   const GenderSelect = ({
@@ -192,6 +200,7 @@ const themedStyles = StyleService.create({
     margin: 15,
     height: 40,
     borderWidth: 1,
+    borderRadius: 5,
     backgroundColor: 'background-basic-color-10',
   },
 });

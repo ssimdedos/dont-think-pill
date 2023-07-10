@@ -3,7 +3,7 @@ import type { LoginActions } from 'reduxs/actions';
 
 const initialState: AppState = {
   loggedIn: false,
-  loggedUser: { email: '', name: '', password: '' },
+  loggedUser: { name: '' },
 };
 
 //  gender: 'none', age: 0, height: 0, weight: 0
@@ -12,8 +12,12 @@ const initialState: AppState = {
 export const userReducer = 
   (state: AppState = initialState, action: LoginActions) => {
     switch (action.type) {
-      case 'login': return {...state, loggedUser: action.loggedUser, loggedIn: true};
-      case 'logout': return initialState;
+      case 'LOG_IN': {
+        console.log('로그인 호출');
+        return {...state, loggedUser: action.loggedUser, loggedIn: true}};
+      case 'LOG_OUT':{
+        console.log('로그아웃 호출');
+        return initialState};
     }
     return state
   }

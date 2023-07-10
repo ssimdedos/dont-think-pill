@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { enableScreens } from 'react-native-screens';
 import { NavigationContainer } from '@react-navigation/native';
@@ -13,17 +13,22 @@ import FoodNavigator from './FoodNavigator';
 
 import ReadingNavigator from './ReadingNavigator';
 import FitnessHealthNavigator from './FitnessHealthNavigator';
+import { useAppSelector } from 'reduxs/store';
 
 enableScreens();
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppContainer = () => {
+  const isLoggedIn = useAppSelector((state) => state.userReducer.loggedIn);
+  useEffect(() => {
+    // console.log(isLoggedIn);
+  }, []);
   const themes = useTheme();
   return (
     <NavigationContainer ref={navigationRef}>
       <View style={{ backgroundColor: themes['background-basic-color-1'], flex: 1 }}>
         <Stack.Navigator
-          initialRouteName={'Init'}
+          initialRouteName={isLoggedIn ? 'Main' : 'Init'}
           screenOptions={{
             headerShown: false,
           }}>
