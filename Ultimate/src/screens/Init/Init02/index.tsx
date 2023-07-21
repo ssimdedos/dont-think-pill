@@ -10,6 +10,7 @@ import {
   SelectItem,
   IndexPath,
   Button,
+  CheckBox,
 } from '@ui-kitten/components';
 // ----------------------------- Assets -----------------------------------
 import { Icons } from 'assets/icons';
@@ -36,11 +37,13 @@ const init02 = memo(() => {
   const theme = useTheme();
   const styles = useStyleSheet(themedStyles);
 
+  const [name, setName] = useState('');
   const [gender, setGender] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(new IndexPath(0));
-  const [ages, setAges] = React.useState<number>();
-  const [userHeight, setUserHeight] = React.useState<number>();
-  const [weight, setWeight] = React.useState<number>();
+  const [ages, setAges] = useState<number>();
+  const [userHeight, setUserHeight] = useState<number>();
+  const [weight, setWeight] = useState<number>();
+  const [isAgreed, setIsAgreed] = useState(false);
   const data_select = [{ title: 'Student' }, { title: 'Teacher' }];
   const displayValue = data_select[selectedIndex.row].title;
 
@@ -107,7 +110,7 @@ const init02 = memo(() => {
         }
       />
       <Content contentContainerStyle={styles.content}>
-        <LinearGradientText text={<Text category="giant">{'Update Infomation'}</Text>} />
+        <LinearGradientText text={<Text category="h2">{'Welcome to the journey!'}</Text>} />
         <Text marginBottom={24} marginTop={40} category="h3">
           Gender
         </Text>
@@ -126,6 +129,18 @@ const init02 = memo(() => {
             );
           })}
         </HStack>
+        <View>
+          <Text category="h3">이름</Text>
+          <TextInput
+            style={styles.inputbox}
+            keyboardType="default"
+            onChangeText={(text) => {
+              setName(text);
+            }}
+            placeholder="이름을 입력하세요"
+            placeholderTextColor="#FFFFFF"
+          />
+        </View>
         <HStack>
           <View>
             <Text category="h3">나이</Text>
@@ -136,6 +151,7 @@ const init02 = memo(() => {
                 setAges(text);
               }}
               placeholder="나이를 입력하세요"
+              placeholderTextColor="#FFFFFF"
             />
           </View>
           <View>
@@ -147,6 +163,7 @@ const init02 = memo(() => {
                 setUserHeight(text);
               }}
               placeholder="키를 입력하세요"
+              placeholderTextColor="#FFFFFF"
             />
           </View>
         </HStack>
@@ -159,10 +176,15 @@ const init02 = memo(() => {
               setWeight(text);
             }}
             placeholder="몸무게를 입력하세요"
+            placeholderTextColor="#FFFFFF"
           />
         </View>
-      </Content>
+        <CheckBox
+          checked={isAgreed}
+          onChange={e => setIsAgreed(e)}
+        >By signing in, you agree with the <Text style={{ textDecorationLine: 'underline' }} >GCU</Text></CheckBox>
       <Button children="완료" style={styles.button} onPress={OnNext} />
+      </Content>
     </Container>
   );
 });
@@ -196,11 +218,18 @@ const themedStyles = StyleService.create({
     marginHorizontal: 16,
   },
   inputbox: {
-    borderColor: '#7a42f4',
+    // borderColor: '#7a42f4',
     margin: 15,
     height: 40,
-    borderWidth: 1,
+    // backgroundColor: 'background-basic-color-10',
+    borderBottomColor: '#FFFFFF',
+    borderTopColor: '#152232',
+    borderRightColor: '#152232',
+    borderLeftColor: '#152232',
+    // marginLeft: 20,
+    // marginBottom: 7,
+    borderWidth: 2,
     borderRadius: 5,
-    backgroundColor: 'background-basic-color-10',
+    color: '#FFFFFF',
   },
 });

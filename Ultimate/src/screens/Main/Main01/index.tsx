@@ -22,6 +22,18 @@ import BottomBar01 from 'elements/Health/BottomBar01';
 import { useAppSelector } from 'reduxs/store';
 
 const Main01 = () => {
+  
+  const now = new Date();
+  const date = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
+  const initialDate = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate() + 1);
+  
+  React.useEffect(() => {
+    console.log(now);
+    // console.log(date);
+    // console.log(initialDate);
+    console.log(now.getDay());
+  }, []);
+
   const { navigate, goBack } = useNavigation();
   const { height, width } = useLayout();
   const styles = useStyleSheet(themedStyles);
@@ -58,8 +70,10 @@ const Main01 = () => {
       />
       <Content contentContainerStyle={styles.content}>
         <Text marginLeft={16} marginRight={64} marginBottom={24} category="h1">
-          Tracking Habit Fitness Daily
+          Hi there,{'\n'}
+          {userData.name}!
         </Text>
+        <Text marginLeft={16} marginBottom={7} category='h3' >Check your daily intake</Text>
         <HStack mh={16}>
           {DATA_DATE.map((date, index) => {
             const isActive = index === selected;
@@ -147,6 +161,7 @@ const themedStyles = StyleService.create({
     marginBottom: 8,
   },
 });
+
 const DATA_DATE = [
   { time: '2023-07-13T05:57:14.533Z' },
   { time: '2023-07-14T05:57:14.533Z' },

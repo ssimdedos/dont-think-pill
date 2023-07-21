@@ -1,7 +1,7 @@
 export const Images = {
-  dark_logo: require('./app/dark_logo.png'),
-  light_logo: require('./app/light_logo.png'),
-  small_logo: require('./app/small_light_logo.png'),
+  dark_logo: require('./app/Logo.png'),
+  light_logo: require('./app/Logo.png'),
+  small_logo: require('./app/Logo.png'),
   dark_mode: require('./app/img_dark_mode.png'),
   light_mode: require('./app/img_light_mode.png'),
   hand_phone: require('./app/img_hand_phone.png'),

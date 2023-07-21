@@ -28,35 +28,16 @@ const Init01 = memo(() => {
 
   const data = [
     {
-      title: 'Private Wealth Management',
-      describe: 'Why would I want to trade an Event Contract over another asset class?',
+      title: 'Personal Wealth Management',
+      describe:
+        'The only nutrition advisor fit for your daily habits and lifestyle!',
       image: Images.onboarding.onboarding01,
     },
     {
-      title: 'Private Wealth Management',
-      describe: 'Why would I want to trade an Event Contract over another asset class?',
+      title: 'No more restrictive diets!',
+      describe: 'Eat what you want, and we will tell you what you need.',
       image: Images.onboarding.onboarding02,
-    },
-    {
-      title: 'Private Wealth Management',
-      describe: 'Why would I want to trade an Event Contract over another asset class?',
-      image: Images.onboarding.onboarding01,
-    },
-    {
-      title: 'Private Wealth Management',
-      describe: 'Why would I want to trade an Event Contract over another asset class?',
-      image: Images.onboarding.onboarding02,
-    },
-    {
-      title: 'Private Wealth Management',
-      describe: 'Why would I want to trade an Event Contract over another asset class?',
-      image: Images.onboarding.onboarding02,
-    },
-    {
-      title: 'Private Wealth Management',
-      describe: 'Why would I want to trade an Event Contract over another asset class?',
-      image: Images.onboarding.onboarding01,
-    },
+    }
   ];
 
   const progress = useSharedValue(0);
@@ -65,7 +46,7 @@ const Init01 = memo(() => {
       <TopNavigation
         style={styles.topNavigation}
         accessoryLeft={<ThemeLogo />}
-        accessoryRight={<Pagination animValue={progress} data={data} space={12} />}
+        accessoryRight={<Pagination animValue={progress} data={data} space={2} />}
       />
       <Content contentContainerStyle={styles.content}>
         <Carousel
