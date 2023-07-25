@@ -1,0 +1,281 @@
+.imgfluid {
+  max-width: '100%';
+  height: auto;
+}
+.logo {
+  height: 32px;
+  width: 32px;
+}
+
+.topbar .container-fluid {
+  border-bottom: 1px solid;
+  border-color: #f5f6f7;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.text-margin {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.scan-text {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  border-radius: 40px;
+  border-color: #353535;
+  height: 72;
+}
+
+.btn-dark {
+  background: #353535;
+  border-radius: 40px;
+}
+.btn-dark img {
+  width: 32;
+  height: 32;
+}
+
+.btn-light {
+  border-width: 2;
+}
+
+.btn-light p {
+  color: #353535;
+}
+
+h1,
+h2 {
+  color: #414742;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-left: 1rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.banner {
+  margin-bottom: 24;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-width: 2px;
+  border: solid #2a3947;
+}
+
+.scan-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  flex: 1;
+}
+
+.ios-view {
+  text-align: center;
+  background-color: #2a3947;
+  border-radius: 16px;
+  padding: 8px;
+  height: 100%;
+}
+
+.android-view {
+  text-align: center;
+  background-color: #2a3947;
+  border-radius: 16px;
+  padding: 8px;
+  margin-top: 8px;
+  height: 100%;
+}
+
+.body {
+  max-width: 840px;
+  margin: auto auto;
+  padding: 8px;
+  position: relative;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin-top: 8px;
+}
+
+.banner-left {
+  display: none;
+}
+
+.banner-right {
+  display: none;
+}
+
+.link-design {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin: 0px 8px;
+}
+
+@media screen and (min-width: 30em) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+  }
+  .logo {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .image {
+    width: 100%;
+  }
+  .scan-view {
+    display: flex;
+    flex-direction: row;
+    margin-top: 8px;
+  }
+  .ios-view {
+    flex: 1;
+  }
+  .android-view {
+    margin-top: 0px;
+    margin-left: 8px;
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 48em) {
+  .content {
+    flex-direction: row;
+  }
+  .box {
+    flex-direction: row;
+  }
+  .image {
+    width: 70%;
+  }
+  .scan-view {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    margin-top: 0px;
+  }
+  .android-view {
+    margin-top: 8px;
+    margin-left: 0px;
+    aspect-ratio: unset;
+  }
+  .ios-view {
+    aspect-ratio: unset;
+  }
+  .body {
+    padding: 16px;
+  }
+  .header {
+    margin-bottom: 16px;
+  }
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+  .banner {
+    margin-top: 24px;
+    height: 140px;
+  }
+  .link-design {
+    margin: 0px 16px;
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .image {
+    width: 70%;
+  }
+  .header {
+    margin-bottom: 0px;
+  }
+  .box {
+    flex-direction: row;
+  }
+  /* .ios-view {
+    flex: unset;
+    height: 100%;
+  }
+  .android-view {
+    flex: unset;
+    height: 100%;
+  } */
+  .scan-view {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+  }
+  .header {
+    height: 96px;
+  }
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 16px;
+  }
+  .banner-left {
+    display: block;
+    padding-bottom: 184px;
+    position: absolute;
+    top: 0px;
+    left: -160px;
+  }
+  .banner-right {
+    display: block;
+    padding-bottom: 184px;
+    margin: 0px 8px;
+    position: absolute;
+    top: 0px;
+    right: -168px;
+  }
+  .link-design {
+    margin: 0px 24px;
+  }
+}
